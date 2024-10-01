@@ -1,3 +1,4 @@
+// Xử lý sự kiện khi nhấn nút khai thác khối mới
 document.getElementById('mineBlockButton').addEventListener('click', function() {
     const data = prompt("Nhập dữ liệu cho khối mới:", "New transaction data");
     const token = prompt("Nhập token cho khối mới:", "NEW_TOKEN");
@@ -22,4 +23,11 @@ document.getElementById('mineBlockButton').addEventListener('click', function() 
     .catch((error) => {
         document.getElementById('resultMessage').innerText = 'Có lỗi xảy ra: ' + error.message;
     });
+});
+
+// Xử lý sự kiện khi nhấn nút tạo hash
+document.getElementById('generateHash').addEventListener('click', function() {
+    const data = document.getElementById('dataInput').value;
+    const hash = CryptoJS.SHA256(data).toString();
+    document.getElementById('hashOutput').value = hash; // Hiển thị hash trong trường output
 });
